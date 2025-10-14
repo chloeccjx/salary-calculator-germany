@@ -151,7 +151,7 @@ if show:
         col1, col2 = st.columns(2)
         with col1:
             st.markdown(
-                f"**Geschätzte Gehaltsspanne:**<br><span style='font-size:22px; color:#007bff; font-weight:bold;'>{fmt(min_sal)} – {fmt(max_sal)}</span>",
+                f"**Geschätzte Gehaltsspanne:**<br><span style='font-size:22px; color:#15803d; font-weight:bold;'>{fmt(min_sal)} – {fmt(max_sal)}</span>",
                 unsafe_allow_html=True
             )
 
