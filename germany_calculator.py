@@ -142,34 +142,31 @@ show = st.button("Schätzung anzeigen", use_container_width=True)
 st.write("---")
 
 if show:
-    min_sal, max_sal = salary_data[role][location]
-    suggested = int(min_sal + (max_sal - min_sal) * seniority_percentiles[level])
+    if role in salary_data and location in salary_data[role]:
+        min_sal, max_sal = salary_data[role][location]
+        suggested = int(min_sal + (max_sal - min_sal) * seniority_percentiles[level])
 
-    st.subheader(f"{level} {role} Gehalt in {location}")
+        st.subheader(f"{level} {role} Gehalt in {location}")
 
-    col1, col2 = st.columns(2)
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown(
+                f"**Geschätzte Gehaltsspanne:**<br><span style='font-size:22px; color:#007bff; font-weight:bold;'>{fmt(min_sal)} – {fmt(max_sal)}</span>",
+                unsafe_allow_html=True
+            )
 
-with col1:
-    st.markdown(
-        f"""
-        **Geschätzte Gehaltsspanne:**<br>
-        <span style='font-size: 22px; font-weight: 700; color: #1A1A1A;'>
-        {fmt(min_sal)} – {fmt(max_sal)}
-        </span>
-        """,
-        unsafe_allow_html=True
-    )
+        with col2:
+            st.markdown(
+                f"**Geschätztes Gehalt für diese Erfahrungsstufe:**<br><span style='font-size:22px; color:#15803d; font-weight:bold;'>{fmt(suggested)}</span>",
+                unsafe_allow_html=True
+            )
 
-with col2:
-    st.markdown(
-        f"""
-        **Geschätztes Gehalt für diese<br>Erfahrungsstufe:**<br>
-        <span style='font-size: 22px; font-weight: 700; color: #1A1A1A;'>
-        {fmt(suggested)}
-        </span>
-        """,
-        unsafe_allow_html=True
-    )
+        st.info(
+            "Dies ist eine Schätzung basierend auf Marktdaten. "
+            "Das tatsächliche Gehalt kann je nach Fähigkeiten, Zertifizierungen und Unternehmen variieren."
+        )
+    else:
+        st.error("Ungültige Auswahl. Bitte überprüfe deine Eingabe.")
 
 st.markdown("[Relevante Jobs entdecken →](https://www.hamilton-barnes.com/candidates/job-search/?)")
 st.caption("Datenquelle: interne Marktdaten. Nur zur Orientierung.")
