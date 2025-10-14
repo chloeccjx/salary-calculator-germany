@@ -148,13 +148,23 @@ if show:
 
     st.subheader(f"{level} {role} Gehalt in {location}")
     
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown(f"**Geschätzte Gehaltsspanne:** {fmt(min_sal)} – {fmt(max_sal)}")
-    with col2:
-        st.markdown(f"**Geschätztes Gehalt für diese Erfahrungsstufe:** {fmt(suggested)}")
-    
-    st.info("Dies ist eine Schätzung basierend auf Marktdaten. Das tatsächliche Gehalt kann je nach Fähigkeiten, Zertifizierungen und Unternehmen variieren.")
+col1, col2 = st.columns(2)
+
+with col1:
+    st.markdown(
+        f"**Geschätzte Gehaltsspanne:**<br>{fmt(min_sal)} – {fmt(max_sal)}",
+        unsafe_allow_html=True
+    )
+
+with col2:
+    st.markdown(
+        f"**Geschätztes Gehalt für diese Erfahrungsstufe:**<br>{fmt(suggested)}",
+        unsafe_allow_html=True
+    )
+
+st.info(
+    "Dies ist eine Schätzung basierend auf
+
 
 st.markdown("[Relevante Jobs entdecken →](https://www.hamilton-barnes.com/candidates/job-search/?)")
 st.caption("Datenquelle: interne Marktdaten. Nur zur Orientierung.")
