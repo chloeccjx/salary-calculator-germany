@@ -1,7 +1,5 @@
 # salary_calculator_germany.py
 import streamlit as st
-def fmt(amount):
-    return f"€{amount:,.0f}".replace(",", ".")
 import os
 st.set_page_config(page_title="Germany Network Engineer Salary Calculator", layout="centered")
 
@@ -11,6 +9,9 @@ print(os.getcwd())
 from PIL import Image
 import base64
 
+def fmt(amount):
+    return f"€{amount:,.0f}".replace(",", ".")
+    
 # --- background part ---
 def add_bg_from_local(image_file):
     file_path = os.path.join(os.path.dirname(__file__), image_file)
