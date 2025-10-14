@@ -1,5 +1,7 @@
 # salary_calculator_germany.py
 import streamlit as st
+def fmt(amount):
+    return f"€{amount:,.0f}".replace(",", ".")
 import os
 st.set_page_config(page_title="Germany Network Engineer Salary Calculator", layout="centered")
 
