@@ -11,7 +11,7 @@ import base64
 
 def fmt(amount):
     return f"€{amount:,.0f}".replace(",", ".")
-    
+
 # --- background part ---
 def add_bg_from_local(image_file):
     file_path = os.path.join(os.path.dirname(__file__), image_file)
@@ -139,10 +139,6 @@ with col3:
 st.write("")
 show = st.button("Schätzung anzeigen", use_container_width=True)
 
-# defining the number formatter
-def fmt(n):
-    return f"€{n:,.0f}".replace(",", ".")
-
 st.write("---")
 
 if show:
@@ -150,25 +146,25 @@ if show:
     suggested = int(min_sal + (max_sal - min_sal) * seniority_percentiles[level])
 
     st.subheader(f"{level} {role} Gehalt in {location}")
-    
-col1, col2 = st.columns(2)
 
-with col1:
-    st.markdown(
-        f"**Geschätzte Gehaltsspanne:**<br>{fmt(min_sal)} – {fmt(max_sal)}",
-        unsafe_allow_html=True
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown(
+            f"**Geschätzte Gehaltsspanne:**<br>{fmt(min_sal)} – {fmt(max_sal)}",
+            unsafe_allow_html=True
+        )
+
+    with col2:
+        st.markdown(
+            f"**Geschätztes Gehalt für diese Erfahrungsstufe:**<br>{fmt(suggested)}",
+            unsafe_allow_html=True
+        )
+
+    st.info(
+        "Dies ist eine Schätzung basierend auf Marktdaten. "
+        "Das tatsächliche Gehalt kann je nach Fähigkeiten, Zertifizierungen und Unternehmen variieren."
     )
-
-with col2:
-    st.markdown(
-        f"**Geschätztes Gehalt für diese Erfahrungsstufe:**<br>{fmt(suggested)}",
-        unsafe_allow_html=True
-    )
-
-st.info(
-    "Dies ist eine Schätzung basierend auf Marktdaten. "
-    "Das tatsächliche Gehalt kann je nach Fähigkeiten, Zertifizierungen und Unternehmen variieren."
-)
 
 st.markdown("[Relevante Jobs entdecken →](https://www.hamilton-barnes.com/candidates/job-search/?)")
 st.caption("Datenquelle: interne Marktdaten. Nur zur Orientierung.")
