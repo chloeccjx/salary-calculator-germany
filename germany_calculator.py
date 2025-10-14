@@ -163,8 +163,9 @@ with col2:
     )
 
 st.info(
-    "Dies ist eine Schätzung basierend auf
-
+    "Dies ist eine Schätzung basierend auf Marktdaten. "
+    "Das tatsächliche Gehalt kann je nach Fähigkeiten, Zertifizierungen und Unternehmen variieren."
+)
 
 st.markdown("[Relevante Jobs entdecken →](https://www.hamilton-barnes.com/candidates/job-search/?)")
 st.caption("Datenquelle: interne Marktdaten. Nur zur Orientierung.")
