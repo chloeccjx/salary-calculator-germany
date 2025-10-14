@@ -151,20 +151,25 @@ if show:
 
     with col1:
         st.markdown(
-            f"**Geschätzte Gehaltsspanne:**<br>{fmt(min_sal)} – {fmt(max_sal)}",
-            unsafe_allow_html=True
-        )
+    f"""
+    <div style='font-size:18px; font-weight:600;'>Geschätzte Gehaltsspanne:</div>
+    <div style='font-size:30px; font-weight:700; color:#1E90FF; margin-top:4px;'>
+        {fmt(min_sal)} – {fmt(max_sal)}
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
     with col2:
         st.markdown(
-            f"**Geschätztes Gehalt für diese Erfahrungsstufe:**<br>{fmt(suggested)}",
-            unsafe_allow_html=True
-        )
-
-    st.info(
-        "Dies ist eine Schätzung basierend auf Marktdaten. "
-        "Das tatsächliche Gehalt kann je nach Fähigkeiten, Zertifizierungen und Unternehmen variieren."
-    )
+    f"""
+    <div style='font-size:18px; font-weight:600;'>Geschätztes Gehalt für diese Erfahrungsstufe:</div>
+    <div style='font-size:34px; font-weight:800; color:#228B22; margin-top:4px;'>
+        {fmt(suggested)}
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 st.markdown("[Relevante Jobs entdecken →](https://www.hamilton-barnes.com/candidates/job-search/?)")
 st.caption("Datenquelle: interne Marktdaten. Nur zur Orientierung.")
