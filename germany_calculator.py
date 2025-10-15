@@ -134,10 +134,16 @@ if show:
     if role in salary_data and location in salary_data[role]:
         min_sal, max_sal = salary_data[role][location]
 
-        st.subheader(f"{role} Gehalt in {location}")
-
         st.markdown(
-            f"**Geschätzte Gehaltsspanne:**<br><span style='font-size:24px; color:#15803d; font-weight:bold;'>{fmt(min_sal)} – {fmt(max_sal)}</span>",
+            f"""
+            <div style='text-align:center;'>
+                <h3 style='margin-bottom:0.2em;'>{role} Gehalt in {location}</h3>
+                <p style='margin-top:0.5em; font-size:22px;'>
+                    <b>Geschätzte Gehaltsspanne:</b><br>
+                    <span style='color:#15803d; font-weight:bold;'>{fmt(min_sal)} – {fmt(max_sal)}</span>
+                </p>
+            </div>
+            """,
             unsafe_allow_html=True
         )
 
@@ -145,6 +151,7 @@ if show:
             "Dies ist eine Schätzung basierend auf Marktdaten. "
             "Das tatsächliche Gehalt kann je nach Fähigkeiten, Zertifizierungen und Unternehmen variieren."
         )
+
     else:
         st.error("Ungültige Auswahl. Bitte überprüfe deine Eingabe.")
 
