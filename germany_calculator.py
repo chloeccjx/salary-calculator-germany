@@ -109,31 +109,20 @@ salary_data = {
     },
 }
 
-# seniority percentiles: the percentile inside the range to show as an estimated salary
-seniority_percentiles = {
-    "Junior": 0.25,
-    "Intermediate": 0.50,
-    "Senior": 0.75,
-    "Managerial": 0.90
-}
-
 # --- Dropdown data ---
 roles = list(salary_data.keys())
 locations = ["Berlin", "Frankfurt", "Hamburg", "Munich", "Regional (rest of Germany)"]
-levels = ["Junior", "Intermediate", "Senior", "Managerial"]
 
 # --- UI ---
 st.title("Finde heraus, wie viel du als Network Engineer in Deutschland verdienen könntest!")
 st.write("---")
-st.write("Wähle Rolle, Standort und Erfahrungsstufe aus, um eine geschätzte Gehaltsspanne zu sehen. (Nur zur Orientierung.)")
+st.write("Wähle Rolle und Standort aus, um eine geschätzte Gehaltsspanne zu sehen. (Nur zur Orientierung.)")
 
-col1, col2, col3 = st.columns([1, 1, 1])
+col1, col2 = st.columns([1, 1])
 with col1:
     role = st.selectbox("Rolle", roles)
 with col2:
     location = st.selectbox("Standort", locations)
-with col3:
-    level = st.selectbox("Erfahrungsstufe", levels)
 
 # button below dropdowns
 st.write("")
@@ -144,22 +133,13 @@ st.write("---")
 if show:
     if role in salary_data and location in salary_data[role]:
         min_sal, max_sal = salary_data[role][location]
-        suggested = int(min_sal + (max_sal - min_sal) * seniority_percentiles[level])
 
-        st.subheader(f"{level} {role} Gehalt in {location}")
+        st.subheader(f"{role} Gehalt in {location}")
 
-        col1, col2 = st.columns(2)
-        with col1:
-            st.markdown(
-                f"**Geschätzte Gehaltsspanne:**<br><span style='font-size:22px; color:#15803d; font-weight:bold;'>{fmt(min_sal)} – {fmt(max_sal)}</span>",
-                unsafe_allow_html=True
-            )
-
-        with col2:
-            st.markdown(
-                f"**Geschätztes Gehalt für diese Erfahrungsstufe:**<br><span style='font-size:22px; color:#15803d; font-weight:bold;'>{fmt(suggested)}</span>",
-                unsafe_allow_html=True
-            )
+        st.markdown(
+            f"**Geschätzte Gehaltsspanne:**<br><span style='font-size:24px; color:#15803d; font-weight:bold;'>{fmt(min_sal)} – {fmt(max_sal)}</span>",
+            unsafe_allow_html=True
+        )
 
         st.info(
             "Dies ist eine Schätzung basierend auf Marktdaten. "
