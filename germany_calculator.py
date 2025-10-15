@@ -79,7 +79,7 @@ salary_data = {
         "Munich": (111000, 165600),
         "Regional (rest of Germany)": (84300, 125900),
     },
-    "Netzwerksicherheitsingenieur": {
+    "Netzwerkingenieur-Sicherheit": {
         "Berlin": (92100, 134800),
         "Frankfurt": (100500, 147000),
         "Hamburg": (92100, 134800),
