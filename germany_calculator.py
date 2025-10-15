@@ -135,32 +135,22 @@ if show:
         min_sal, max_sal = salary_data[role][location]
 
         st.markdown(
-            f"""
-            <div style="
-                display:flex;
-                justify-content:center;
-                align-items:center;
-                flex-direction:column;
-                width:100%;
-                text-align:center;
-                margin-top:10px;
-                margin-bottom:10px;
-            ">
-              <div style="max-width:720px; width:100%;">
-                <h3 style="margin:0 0 6px 0; font-weight:700;">{role} Gehalt in {location}</h3>
-
-                <div style="margin-top:6px; font-size:16px; color:#333;">
-                  <strong>Geschätzte Gehaltsspanne:</strong>
-                </div>
-
-                <div style="margin-top:6px; font-size:28px; font-weight:800; color:#15803d;">
-                  {fmt(min_sal)} – {fmt(max_sal)}
-                </div>
-              </div>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+    f"""
+    <div style="
+        text-align:center;
+        margin-top:30px;
+        margin-bottom:30px;
+        width:100%;
+    ">
+        <h2 style="font-weight:600; color:#222;">{role} Gehalt in {location}</h2>
+        <p style="font-size:18px; color:#333; margin-bottom:5px;">Geschätzte Gehaltsspanne:</p>
+        <p style="font-size:26px; font-weight:800; color:#15803d; margin:0;">
+            {fmt(min_sal)} – {fmt(max_sal)}
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
         st.info(
             "Dies ist eine Schätzung basierend auf Marktdaten. "
