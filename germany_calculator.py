@@ -136,12 +136,27 @@ if show:
 
         st.markdown(
             f"""
-            <div style='text-align:center;'>
-                <h3 style='margin-bottom:0.2em;'>{role} Gehalt in {location}</h3>
-                <p style='margin-top:0.5em; font-size:22px;'>
-                    <b>Geschätzte Gehaltsspanne:</b><br>
-                    <span style='color:#15803d; font-weight:bold;'>{fmt(min_sal)} – {fmt(max_sal)}</span>
-                </p>
+            <div style="
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                flex-direction:column;
+                width:100%;
+                text-align:center;
+                margin-top:10px;
+                margin-bottom:10px;
+            ">
+              <div style="max-width:720px; width:100%;">
+                <h3 style="margin:0 0 6px 0; font-weight:700;">{role} Gehalt in {location}</h3>
+
+                <div style="margin-top:6px; font-size:16px; color:#333;">
+                  <strong>Geschätzte Gehaltsspanne:</strong>
+                </div>
+
+                <div style="margin-top:6px; font-size:28px; font-weight:800; color:#15803d;">
+                  {fmt(min_sal)} – {fmt(max_sal)}
+                </div>
+              </div>
             </div>
             """,
             unsafe_allow_html=True
@@ -151,7 +166,6 @@ if show:
             "Dies ist eine Schätzung basierend auf Marktdaten. "
             "Das tatsächliche Gehalt kann je nach Fähigkeiten, Zertifizierungen und Unternehmen variieren."
         )
-
     else:
         st.error("Ungültige Auswahl. Bitte überprüfe deine Eingabe.")
 
