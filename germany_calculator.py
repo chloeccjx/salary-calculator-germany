@@ -107,7 +107,7 @@ salary_data = {
         "Munich": (96900, 137500),
         "Regional (rest of Germany)": (73600, 104500),
     },
-"Bauleiter": {
+    "Bauleiter": {
         "Berlin": (55500, 75000),
         "Frankfurt": (55500, 75000),
         "Hamburg": (55500, 75000),
