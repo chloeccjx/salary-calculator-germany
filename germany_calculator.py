@@ -222,5 +222,45 @@ if show:
     else:
         st.error("Ungültige Auswahl. Bitte überprüfe deine Eingabe.")
 
-st.markdown("[Relevante Jobs entdecken →](https://www.hamilton-barnes.com/candidates/job-search/?)")
 st.caption("Datenquelle: interne Marktdaten. Nur zur Orientierung.")
+
+# --- Simple Button Section ---
+st.markdown("---")
+
+st.markdown("""
+<style>
+.explore-btn {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.8); /* thinner + softer */
+    color: white;
+    background-color: transparent;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 8px;
+    text-decoration: none; /* removes underline */
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+}
+.explore-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+}
+</style>
+""", unsafe_allow_html=True)
+
+buttons = [
+    ("Homepage", "https://www.hamilton-barnes.com/"),
+    ("Rollen erkunden", "https://www.hamilton-barnes.com/jobs"),
+    ("Bewerber", "https://www.hamilton-barnes.com/candidates"),
+    ("Kunden", "https://www.hamilton-barnes.com/clients"),
+    ("Absolventen", "https://www.empowering-future-network-engineers.com/")
+]
+
+btn_html = '<div style="text-align:center;">'
+for label, link in buttons:
+    btn_html += f'<a href="{link}" target="_blank" class="explore-btn">{label}</a>'
+btn_html += '</div>'
+
+st.markdown(btn_html, unsafe_allow_html=True)
