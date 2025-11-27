@@ -218,7 +218,6 @@ show = st.button("Schätzung anzeigen", use_container_width=True)
 st.write("---")
 
 if show:
-if show:
     if role in salary_data and location in salary_data[role]:
 
         level_key = levels.lower()
