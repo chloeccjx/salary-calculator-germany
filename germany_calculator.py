@@ -218,26 +218,29 @@ show = st.button("Schätzung anzeigen", use_container_width=True)
 st.write("---")
 
 if show:
+if show:
     if role in salary_data and location in salary_data[role]:
-        min_sal, max_sal = salary_data[role][location]
+
+        level_key = levels.lower()
+        salary = salary_data[role][location][level_key]
 
         st.markdown(
-    f"""
-    <div style="
-        text-align:center;
-        margin-top:30px;
-        margin-bottom:30px;
-        width:100%;
-    ">
-        <h2 style="font-weight:600; color:#222;">{role} Gehalt in {location}</h2>
-        <p style="font-size:18px; color:#333; margin-bottom:5px;">Geschätzte Gehaltsspanne:</p>
-        <p style="font-size:26px; font-weight:800; color:#15803d; margin:0;">
-            {fmt(min_sal)} – {fmt(max_sal)}
-        </p>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+            f"""
+            <div style="
+                text-align:center;
+                margin-top:30px;
+                margin-bottom:30px;
+                width:100%;
+            ">
+                <h2 style="font-weight:600; color:#222;">{role} Gehalt in {location}</h2>
+                <p style="font-size:18px; color:#333; margin-bottom:5px;">Geschätztes Gehalt:</p>
+                <p style="font-size:26px; font-weight:800; color:#15803d; margin:0;">
+                    {fmt(salary)}
+                </p>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
         st.info(
             "Dies ist eine Schätzung basierend auf Marktdaten. "
