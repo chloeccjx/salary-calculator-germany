@@ -207,7 +207,7 @@ col1, col2, col3 = st.columns([1, 1, 1])
 with col1:
     role = st.selectbox("Rolle", roles)
 with col2:
-    location = st.selectbox("Berufserfahrung", levels)
+    levels = st.selectbox("Berufserfahrung", levels)
 with col3:
     location = st.selectbox("Standort", locations)
 
