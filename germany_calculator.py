@@ -426,4 +426,4 @@ btn_html += '</div>'
 
 st.markdown(btn_html, unsafe_allow_html=True)
 
-render_interactive_tools_hub(current_tool="Wayback Machine")
+render_interactive_tools_hub(current_tool="Germany Salary Calculator")
