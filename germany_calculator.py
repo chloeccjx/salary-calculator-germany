@@ -1,7 +1,7 @@
 # salary_calculator_germany.py
 import streamlit as st
-import base64
 import streamlit.components.v1 as components
+import base64
 import os
 st.set_page_config(page_title="Germany Network Engineer Salary Calculator", layout="centered")
 
@@ -423,5 +423,7 @@ btn_html = '<div style="text-align:center;">'
 for label, link in buttons:
     btn_html += f'<a href="{link}" target="_blank" class="explore-btn">{label}</a>'
 btn_html += '</div>'
+
+st.markdown(btn_html, unsafe_allow_html=True)
 
 render_interactive_tools_hub(current_tool="Germany Salary Calculator")
