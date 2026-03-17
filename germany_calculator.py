@@ -1,153 +1,16 @@
 # salary_calculator_germany.py
 import streamlit as st
-import streamlit.components.v1 as components
 import base64
 import os
 st.set_page_config(page_title="Germany Network Engineer Salary Calculator", layout="centered")
-
 import os
 print(os.getcwd())
 
 from PIL import Image
 
-def render_interactive_tools_hub(current_tool: str) -> None:
-    tools = [
-    {
-        "name": "Candidate Market Insight",
-        "url": "https://www.hamilton-barnes.com/candidate-market-insight",
-        "summary": "Explore broader candidate-side market trends, hiring movement, and skill demand across selected technology areas to better understand where the market is shifting."
-    },
-    {
-        "name": "UK Salary Calculator",
-        "url": "https://hamilton-barnes-salary-calculator-uk.streamlit.app/",
-        "summary": "Benchmark salary expectations across the UK market using role, level, and location inputs designed to help candidates and hiring teams sense-check compensation more clearly."
-    },
-    {
-        "name": "Germany Salary Calculator",
-        "url": "https://hamilton-barnes-germany-salary-calculator.streamlit.app/",
-        "summary": "Benchmark salary expectations across the German market using role, level, and location inputs to give users a more practical view of market positioning."
-    },
-    {
-        "name": "Wayback Machine",
-        "url": "https://hamilton-barnes-wayback-machine.streamlit.app/",
-        "summary": "Explore how each specialism has evolved over time across market shifts, technical development, talent demand, and investment context through a structured year-by-year view."
-    },
-]
-
-    visible_tools = [tool for tool in tools if tool["name"] != current_tool]
-
-    cards_html = ""
-    for tool in visible_tools:
-        cards_html += f"""
-        <div class="hb-tool-card">
-            <div class="hb-tool-card-title">{tool["name"]}</div>
-            <div class="hb-tool-card-line">{tool["summary"]}</div>
-            <a class="hb-tool-card-link" href="{tool["url"]}" target="_blank">Open tool</a>
-        </div>
-        """
-
-    full_html = f"""
-    <html>
-    <head>
-    <style>
-        body {{
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: #000000;
-            background: transparent;
-        }}
-
-        .tools-hub-wrap {{
-            margin-top: 0.5rem;
-        }}
-
-        .tools-hub-title {{
-            text-align: center;
-            font-size: 1.7rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }}
-
-        .tools-hub-subtitle {{
-            text-align: center;
-            font-size: 0.95rem;
-            max-width: 760px;
-            margin: 1.8rem auto 1.6rem auto;
-            line-height: 1.6;
-        }}
-
-        .tools-grid {{
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-        }}
-
-        .hb-tool-card {{
-            background: rgba(255, 255, 255, 0.58);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 22px;
-            padding: 1.15rem 1.2rem 1rem 1.2rem;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
-        }}
-
-        .hb-tool-card-title {{
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 0.6rem;
-        }}
-
-        .hb-tool-card-line {{
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 0.35rem;
-        }}
-
-        .hb-tool-card-link {{
-            display: inline-block;
-            margin-top: 0.6rem;
-            padding: 0.25rem 0.8rem;
-            border-radius: 999px;
-            border: 1px solid #b5c1cf;
-            background: transparent;
-            color: black;
-            text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 500;
-        }}
-
-        .hb-tool-card-link:hover {{
-            border-color: #7ac043;
-            color: #7ac043;
-        }}
-
-        @media (max-width: 768px) {{
-            .tools-grid {{
-                grid-template-columns: 1fr;
-            }}
-        }}
-    </style>
-    </head>
-    <body>
-        <div class="tools-hub-wrap">
-            <div class="tools-hub-subtitle">
-                Explore the rest of the Hamilton Barnes interactive toolset below. Each one is designed to help users better understand salary benchmarks, market positioning, or long-term specialism shifts.
-            </div>
-
-            <div class="tools-grid">
-                {cards_html}
-            </div>
-        </div>
-    </body>
-    </html>
-    """
-    components.html(full_html, height=1100, scrolling=False)
-
-
 def fmt(amount):
     return f"€{amount:,.0f}".replace(",", ".")
-    
+
 # --- background part ---
 def add_bg_from_local(image_file):
     file_path = os.path.join(os.path.dirname(__file__), image_file)
