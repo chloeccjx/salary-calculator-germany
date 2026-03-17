@@ -10,9 +10,6 @@ print(os.getcwd())
 
 from PIL import Image
 
-def fmt(amount):
-    return f"€{amount:,.0f}".replace(",", ".")
-
 def render_interactive_tools_hub(current_tool: str) -> None:
     tools = [
     {
@@ -147,6 +144,10 @@ def render_interactive_tools_hub(current_tool: str) -> None:
     """
     components.html(full_html, height=1100, scrolling=False)
 
+
+def fmt(amount):
+    return f"€{amount:,.0f}".replace(",", ".")
+    
 # --- background part ---
 def add_bg_from_local(image_file):
     file_path = os.path.join(os.path.dirname(__file__), image_file)
@@ -425,5 +426,3 @@ for label, link in buttons:
 btn_html += '</div>'
 
 st.markdown(btn_html, unsafe_allow_html=True)
-
-render_interactive_tools_hub(current_tool="Germany Salary Calculator")
