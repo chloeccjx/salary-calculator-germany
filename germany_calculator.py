@@ -1,6 +1,7 @@
 # salary_calculator_germany.py
 import streamlit as st
-import base64import streamlit.components.v1 as components
+import base64
+import streamlit.components.v1 as components
 import os
 st.set_page_config(page_title="Germany Network Engineer Salary Calculator", layout="centered")
 
