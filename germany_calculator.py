@@ -144,9 +144,7 @@ def render_interactive_tools_hub(current_tool: str) -> None:
     </body>
     </html>
     """
-
-    components.html(full_html, height=1100, scrolling=False)
-
+    
 # --- background part ---
 def add_bg_from_local(image_file):
     file_path = os.path.join(os.path.dirname(__file__), image_file)
@@ -423,7 +421,5 @@ btn_html = '<div style="text-align:center;">'
 for label, link in buttons:
     btn_html += f'<a href="{link}" target="_blank" class="explore-btn">{label}</a>'
 btn_html += '</div>'
-
-st.markdown(btn_html, unsafe_allow_html=True)
 
 render_interactive_tools_hub(current_tool="Germany Salary Calculator")
